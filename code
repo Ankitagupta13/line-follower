@@ -1,0 +1,81 @@
+#define LS 8
+#define C 9
+#define RS 10
+#define LM1 2
+#define LM2 3
+#define RM1 0
+#define RM2  1
+void setup() {
+pinMode(LS,INPUT);
+pinMode(C,INPUT);
+pinMode(RS,INPUT);
+pinMode(LM1, OUTPUT);
+pinMode(LM2, OUTPUT);
+pinMode(RM1, OUTPUT);
+pinMode(RM2, OUTPUT);
+
+
+}
+
+void loop()
+{
+  // put your main code here, to run repeatedly:
+  
+if(digitalRead(LS)&&digitalRead(RS)&&!digitalRead(C))
+{//moves straight
+ digitalWrite(LM1, HIGH);
+    digitalWrite(LM2, LOW);
+    digitalWrite(RM1, HIGH);
+    digitalWrite(RM2, LOW);
+
+}
+else if(!digitalRead(LS)&&digitalRead(RS)&&!digitalRead(C))
+{//moves left
+ digitalWrite(LM1, LOW);
+    digitalWrite(LM2, LOW);
+    digitalWrite(RM1, HIGH);
+    digitalWrite(RM2, LOW);
+
+}
+else if(digitalRead(LS)&&!digitalRead(RS)&&!digitalRead(C))
+{//moves straight
+ digitalWrite(LM1, HIGH);
+    digitalWrite(LM2, LOW);
+    digitalWrite(RM1, LOW);
+    digitalWrite(RM2, LOW);
+
+}
+else if(digitalRead(LS)&&!digitalRead(RS)&&digitalRead(C))
+{//moves right
+ digitalWrite(LM1, HIGH);
+    digitalWrite(LM2, LOW);
+    digitalWrite(RM1, LOW);
+    digitalWrite(RM2, LOW);
+
+}
+else if(!digitalRead(LS)&&digitalRead(RS)&&digitalRead(C))
+{//moves straight
+ digitalWrite(LM1, LOW);
+    digitalWrite(LM2, LOW);
+    digitalWrite(RM1, HIGH);
+    digitalWrite(RM2, LOW);
+
+}
+else if(!digitalRead(LS)&&!digitalRead(RS)&&!digitalRead(C))
+{//stops
+ digitalWrite(LM1, LOW);
+    digitalWrite(LM2, LOW);
+    digitalWrite(RM1, LOW);
+    digitalWrite(RM2, LOW);
+
+}
+else if(digitalRead(LS)&&digitalRead(RS)&&digitalRead(C))
+{//moves back
+ digitalWrite(LM1, LOW);
+    digitalWrite(LM2, HIGH);
+    digitalWrite(RM1, LOW);
+    digitalWrite(RM2, HIGH);
+
+}
+
+}
